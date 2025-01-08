@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, cla
 from sklearn.model_selection import train_test_split, cross_validate
 pd.set_option('display.max_columns', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
-pd.set_option('display.width', 500)
+pd.set_option('display.width', 501)
 import warnings
 warnings.filterwarnings('ignore')
 import matplotlib.pyplot  as plt
