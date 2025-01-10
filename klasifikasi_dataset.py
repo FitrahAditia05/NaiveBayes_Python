@@ -25,7 +25,7 @@ df = data.copy()
 df.head()
 df
 
-# Menghapus kolom 'Pregnancies'
+# Menghapus kolom 'Pregnancies' 
 df = pd.DataFrame(data.drop('Pregnancies', axis=1))
 df
 
