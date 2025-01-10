@@ -54,7 +54,7 @@ model.fit(X_train, Y_train.ravel())
 # Memprediksi Data uji
 y_pred = model.predict(X_test)
 
-# Menghitung dan Menampilkan akurasi
+# Menghitung dan Menampilkan skor akurasi 
 from sklearn import metrics
 print("\33[46m Accuracy Is:", metrics.accuracy_score(Y_test, y_pred))
 
