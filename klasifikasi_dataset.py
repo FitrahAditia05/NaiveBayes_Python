@@ -56,7 +56,7 @@ y_pred = model.predict(X_test)
 
 # Menghitung dan Menampilkan akurasi
 from sklearn import metrics
-print("\33[43m Accuracy Is:", metrics.accuracy_score(Y_test, y_pred))
+print("\33[46m Accuracy Is:", metrics.accuracy_score(Y_test, y_pred))
 
 ## CLEARING DATA GLUCOSE NULL
 
