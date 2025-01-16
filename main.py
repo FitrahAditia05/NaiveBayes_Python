@@ -20,17 +20,16 @@ class HomeScreen(Screen):
 
         Window.bind(size=self.update_rect)
 
-        Window.bind(size=self.update_rect)
-
         logo = Image(source='logo.png', size_hint=(1, 0.2))
         layout.add_widget(logo)
 
         labelapp = Label(
-            text="Check Diabetes",
+            text="DIABETES CHECKER",
             size_hint=(1, 0.05),
-            color=(0.22,0.86,0.07,1),
+            color=(1, 0, 0, 1),  # Warna teks putih
             font_size='32sp',
-            halign='center'
+            bold=True  # Teks tebal
+            
         )
         layout.add_widget(labelapp)
         
@@ -44,17 +43,23 @@ class HomeScreen(Screen):
         layout.add_widget(labelver)
 
         names = Label(
-            text="Nama Anggota: \n Agus Saputra \n Fitrah Aditia \n Miftahudin Rifki \n Steven Ario Timotheus",
+            text="Nama Anggota: \n Agus Saputra | SI-22566008 \n Fitrah Aditia \n Miftahudin Rifki | SI-19563003 \n Steven Ario Timotheus | SI-22563003",
             size_hint=(1, 0.15),
-            color=(0, 0, 0, 1),
-            font_size='24sp',
+            color=(1, 1, 1, 1),
+            font_size='15sp',
             halign='center'
         )
         layout.add_widget(names)
 
         btn_layout = BoxLayout(size_hint=(1, 0.1), padding=20, spacing=20)
         btn_layout.add_widget(BoxLayout(size_hint=(0.1, 1)))  # Spacer di kiri
-        start_btn = Button(text="Mulai", size_hint=(0.8, 0.6))
+        start_btn = Button(
+            text="Mulai",
+            size_hint=(0.8, 0.6),
+            background_color=(0, 0.5, 0, 1),  # Warna FF7F00 dalam RGBA
+            color=(1, 1, 1, 1),  # Warna teks putih
+            bold=True  # Teks tebal
+        )
         start_btn.bind(on_press=self.goto_dashboard)
         btn_layout.add_widget(start_btn)
         btn_layout.add_widget(BoxLayout(size_hint=(0.1, 1)))  # Spacer di kanan
@@ -83,14 +88,14 @@ class DashboardScreen(Screen):
         layout.add_widget(logo)
 
         buttons = [
-            ("Cek Akurasi", self.goto_cek_akurasi, (0, 0, 1, 1)),  # Biru
-            ("Cek Diabetes", self.goto_cek_diabetes, (1, 1, 0, 1)),  # Kuning
-            ("Kembali", self.goto_home, (0, 1, 0, 1)),  # Hijau
-            ("Keluar", self.exit_app, (1, 0, 0, 1))  # Merah
+            ("Cek Akurasi", self.goto_cek_akurasi),
+            ("Cek Diabetes", self.goto_cek_diabetes),
+            ("Kembali", self.goto_home),
+            ("Exit", self.exit_app)
         ]
 
-        for text, callback, color in buttons:
-            btn = Button(text=text, size_hint=(1, 0.2), background_color=color)
+        for text, callback in buttons:
+            btn = Button(text=text, size_hint=(1, 0.2))
             btn.bind(on_press=callback)
             layout.add_widget(btn)
 
@@ -111,7 +116,6 @@ class DashboardScreen(Screen):
     def exit_app(self, instance):
         App.get_running_app().stop()
 
-
 class MainApp(App):
     def build(self):
         sm = ScreenManager()
@@ -122,5 +126,5 @@ class MainApp(App):
         return sm
 
 if __name__ == "__main__":
-    Window.size = (500, 900)
+    Window.size = (500, 650)
     MainApp().run()
