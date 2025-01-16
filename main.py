@@ -83,14 +83,14 @@ class DashboardScreen(Screen):
         layout.add_widget(logo)
 
         buttons = [
-            ("Cek Akurasi", self.goto_cek_akurasi),
-            ("Cek Diabetes", self.goto_cek_diabetes),
-            ("Kembali", self.goto_home),
-            ("Exit", self.exit_app)
+            ("Cek Akurasi", self.goto_cek_akurasi, (0, 0, 1, 1)),  # Biru
+            ("Cek Diabetes", self.goto_cek_diabetes, (1, 1, 0, 1)),  # Kuning
+            ("Kembali", self.goto_home, (0, 1, 0, 1)),  # Hijau
+            ("Exit", self.exit_app, (1, 0, 0, 1))  # Merah
         ]
 
-        for text, callback in buttons:
-            btn = Button(text=text, size_hint=(1, 0.2))
+        for text, callback, color in buttons:
+            btn = Button(text=text, size_hint=(1, 0.2), background_color=color)
             btn.bind(on_press=callback)
             layout.add_widget(btn)
 
@@ -110,6 +110,7 @@ class DashboardScreen(Screen):
 
     def exit_app(self, instance):
         App.get_running_app().stop()
+
 
 class MainApp(App):
     def build(self):
