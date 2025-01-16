@@ -86,7 +86,7 @@ class DashboardScreen(Screen):
             ("Cek Akurasi", self.goto_cek_akurasi, (0, 0, 1, 1)),  # Biru
             ("Cek Diabetes", self.goto_cek_diabetes, (1, 1, 0, 1)),  # Kuning
             ("Kembali", self.goto_home, (0, 1, 0, 1)),  # Hijau
-            ("Exit", self.exit_app, (1, 0, 0, 1))  # Merah
+            ("Keluar", self.exit_app, (1, 0, 0, 1))  # Merah
         ]
 
         for text, callback, color in buttons:
