@@ -38,14 +38,22 @@ class CekAkurasiScreen(Screen):
         super().__init__(**kwargs)
         layout = BoxLayout(orientation='vertical', padding=20, spacing=20)
 
-        # Button to show accuracy
-        accuracy_button = Button(text="Tampilkan Akurasi", size_hint=(1, 0.2))
+        # Button to show accuracy with yellow background
+        accuracy_button = Button(
+            text="Tampilkan Akurasi",
+            size_hint=(1, 0.2),
+            background_color=(1, 1, 0, 1)  # RGBA for yellow
+        )
         accuracy_button.bind(on_press=self.show_accuracy)
         layout.add_widget(accuracy_button)
 
-        # Back button
-        back_button = Button(text="Kembali", size_hint=(1, 0.2))
-        back_button.bind(on_press=self.goto_HomeScreen)
+        # Back button with green background
+        back_button = Button(
+            text="Kembali",
+            size_hint=(1, 0.2),
+            background_color=(0, 1, 0, 1)  # RGBA for green
+        )
+        back_button.bind(on_press=self.goto_previous_screen)
         layout.add_widget(back_button)
 
         self.add_widget(layout)
@@ -55,7 +63,7 @@ class CekAkurasiScreen(Screen):
         self.show_popup(f"Akurasi Model: {accuracy * 100:.2f}%", accuracy)
 
     def generate_pie_chart(self, accuracy):
-        labels = ['Akurasi', 'Error']
+        labels = ['Akurasi', 'Hasil']
         sizes = [accuracy, 1 - accuracy]
         colors = ['#66b3ff', '#ff9999']
         explode = (0.1, 0)
@@ -92,5 +100,5 @@ class CekAkurasiScreen(Screen):
     def close_popup(self, instance):
         self.popup.dismiss()
 
-    def goto_HomeScreen(self, instance):
-        self.manager.current = 'home'
+    def goto_previous_screen(self, instance):
+        self.manager.current = self.manager.previous()
