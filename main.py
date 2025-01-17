@@ -56,7 +56,7 @@ class HomeScreen(Screen):
         start_btn = Button(
             text="Mulai",
             size_hint=(0.8, 0.6),
-            background_color=(0, 0.5, 0, 1),  # Warna FF7F00 dalam RGBA
+            background_color=(0, 1, 0, 1),  # Hijau Warna FF7F00 dalam RGBA
             color=(1, 1, 1, 1),  # Warna teks putih
             bold=True  # Teks tebal
         )
